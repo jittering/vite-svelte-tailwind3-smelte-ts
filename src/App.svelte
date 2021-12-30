@@ -1,10 +1,13 @@
 <script lang="ts">
-  import logo from './assets/svelte.png'
-  import Counter from './lib/Counter.svelte'
+  import { Button, Chip, Card, Image, TextField } from "smelte";
+
+  import "./tailwind-smelte.css";
+  import logo from "./assets/svelte.png";
+  import Counter from "./lib/Counter.svelte";
 </script>
 
 <main>
-  <img src={logo} alt="Svelte Logo" />
+  <img class="inline" src={logo} alt="Svelte Logo" />
   <h1>Hello Typescript!</h1>
 
   <Counter />
@@ -14,16 +17,51 @@
     apps.
   </p>
 
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme">SvelteKit</a> for
-    the officially supported framework, also powered by Vite!
-  </p>
+  <div class="border-2 m-4 p-4">
+    <h2 class="text-zinc-800">Hi Tailwind CSS!</h2>
+  </div>
+
+  <h3>And what about Smelte?</h3>
+
+  <div class="flex justify-center gap-4 items-center">
+    <TextField label="What is on your mind?" outlined />
+    <Button class="">Button</Button>
+    <Chip class="" icon="face" removable selectable>test</Chip>
+  </div>
+
+  <br />
+  <br />
+
+  <Card.Card class="dark:bg-gray-200">
+    <div slot="title">
+      <Card.Title
+        title="The three little kittens"
+        subheader="A kitten poem"
+        avatar="https://placekitten.com/64/64"
+      />
+    </div>
+    <div slot="media">
+      <Image class="w-full" src="https://placekitten.com/300/200" alt="kitty" />
+    </div>
+    <div slot="text" class="p-5 pb-0 pt-3 text-gray-700 body-2">
+      The three little kittens, they lost their mittens,<br />
+      And they began to cry,<br />
+      "Oh, mother dear, we sadly fear,<br />
+      That we have lost our mittens."
+    </div>
+    <div slot="actions">
+      <div class="p-2">
+        <Button text>OK</Button>
+        <Button text>Meow</Button>
+      </div>
+    </div>
+  </Card.Card>
 </main>
 
 <style>
   :root {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
 
   main {
